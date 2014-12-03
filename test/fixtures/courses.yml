@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  cours_name: MyString
+  cours_code: MyString
+  type: 
+  year_one_ht: 1
+  year_one_vt: 1
+  year_two_ht: 1
+  year_two_vt: 1
+  year_three_ht: 1
+  year_three_vt: 1
+
+two:
+  cours_name: MyString
+  cours_code: MyString
+  type: 
+  year_one_ht: 1
+  year_one_vt: 1
+  year_two_ht: 1
+  year_two_vt: 1
+  year_three_ht: 1
+  year_three_vt: 1
