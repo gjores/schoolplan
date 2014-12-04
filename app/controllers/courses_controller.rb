@@ -50,6 +50,19 @@ class CoursesController < ApplicationController
       end
     end
   end
+#   def update
+#   @course = Course.find(params[:id])
+
+#   respond_to do |format|
+#     if @course.update_attributes(params[course_params])
+#       format.html { redirect_to @course, notice: 'Post was successfully updated.' }
+#       format.json { head :no_content } # 204 No Content
+#     else
+#       format.html { render action: "edit" }
+#       format.json { render json: @course.errors, status: :unprocessable_entity }
+#     end
+#   end
+# end
 
   # DELETE /courses/1
   # DELETE /courses/1.json
@@ -69,6 +82,6 @@ class CoursesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def course_params
-      params.require(:course).permit(:cours_name, :cours_code, :type, :year_one_ht, :year_one_vt, :year_two_ht, :year_two_vt, :year_three_ht, :year_three_vt)
+      params.require(:course).permit(:cours_name, :cours_code, :type, :teacher_id)
     end
 end

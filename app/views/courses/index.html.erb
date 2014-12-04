@@ -1,11 +1,11 @@
 <h1>Listing courses</h1>
 
-<table>
+<table class="table ">
   <thead>
     <tr>
       <th>Cours name</th>
       <th>Cours code</th>
-      <th>Type</th>
+      <th>Teacher</th>
       <th></th>
       <th></th>
       <th></th>
@@ -17,7 +17,10 @@
       <tr>
         <td><%= course.cours_name %></td>
         <td><%= course.cours_code %></td>
-        <td><%= course.type %></td>
+        
+        <td><span class="edit" href="#" data-xeditable="true" data-pk="<%= course.id %>" data-model="course" data-name="teacher_id" data-url="<%= course_url(course) %>" data-title="Välj lärare.">
+            <%= course.teacher_id %>
+          </span></td>
         <td><%= link_to 'Show', course %></td>
         <td><%= link_to 'Edit', edit_course_path(course) %></td>
         <td><%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -29,3 +32,8 @@
 <br>
 
 <%= link_to 'New Course', new_course_path %>
+<script type="text/javascript">
+$( document ).ready(function() {
+  $('.edit').editable()
+}); 
+</script>
