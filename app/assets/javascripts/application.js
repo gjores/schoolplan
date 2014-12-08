@@ -15,5 +15,7 @@
 //= require turbolinks
 //= require bootstrap-sprockets
 //= require editable/bootstrap-editable
+//= require twitter/typeahead.min
+//= require select2
 //= require editable/rails
 //= require_tree .

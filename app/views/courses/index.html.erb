@@ -5,6 +5,7 @@
     <tr>
       <th>Cours name</th>
       <th>Cours code</th>
+      <th>Group</th>
       <th>Teacher</th>
       <th></th>
       <th></th>
@@ -17,8 +18,8 @@
       <tr>
         <td><%= course.cours_name %></td>
         <td><%= course.cours_code %></td>
-        
-        <td><span class="edit" href="#" data-xeditable="true" data-pk="<%= course.id %>" data-model="course" data-name="teacher_id" data-url="<%= course_url(course) %>" data-title="Välj lärare.">
+        <td><%= course.group%></td>
+        <td><span class="edit" href="#" data-xeditable="true" data-pk="<%= course.id %>" data-model="course" data-name="teacher_id" data-url="<%= course_url(course) %>" data-title="Välj lärare." data-type="select2">
             <%= course.teacher_id %>
           </a></td>
         <td><%= link_to 'Show', course %></td>
@@ -34,6 +35,15 @@
 <%= link_to 'New Course', new_course_path %>
 <script type="text/javascript">
 $( document ).ready(function() {
-  $('.edit').editable()
+  $('.edit').editable({
+        source: [
+              {id: '22', text: 'Great Britain'},
+              {id: '44', text: 'United States'},
+              {id: '33', text: 'Russia'}
+           ],
+        select2: {
+           multiple: false
+        }
+    });
 }); 
 </script>

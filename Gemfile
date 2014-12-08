@@ -17,7 +17,8 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'bootstrap-sass', '~> 3.3.1'
 gem 'autoprefixer-rails'
 gem 'x-editable-rails'
-
+gem 'twitter-typeahead-rails'
+gem 'select2-rails'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
