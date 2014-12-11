@@ -36,14 +36,18 @@
 <script type="text/javascript">
 $( document ).ready(function() {
   $('.edit').editable({
-        source: [
-              {id: '22', text: 'Great Britain'},
-              {id: '44', text: 'United States'},
-              {id: '33', text: 'Russia'}
-           ],
         select2: {
-           multiple: false
+           multiple: false,
+           ajax:{
+            url: "<%= teachers_path(format: :json)%>",
+            dataType: "json",
+            quietMillis: 250,
+            data: function(term, page) { return { q: term } },
+            results: function(data, page) { return { results: data } }
+
+          }
         }
+
     });
 }); 
 </script>
