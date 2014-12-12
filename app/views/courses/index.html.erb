@@ -20,7 +20,9 @@
         <td><%= course.cours_code %></td>
         <td><%= course.group%></td>
         <td><span class="edit" href="#" data-xeditable="true" data-pk="<%= course.id %>" data-model="course" data-name="teacher_id" data-url="<%= course_url(course) %>" data-title="Välj lärare." data-type="select2">
-            <%= course.teacher_id %>
+            <% @teachers.where(:id => course.teacher_id).each do |t| %>
+            <%= t.name%>
+            <% end -%>
           </a></td>
         <td><%= link_to 'Show', course %></td>
         <td><%= link_to 'Edit', edit_course_path(course) %></td>
@@ -42,7 +44,7 @@ $( document ).ready(function() {
             url: "<%= teachers_path(format: :json)%>",
             dataType: "json",
             quietMillis: 250,
-            data: function(term, page) { return { q: term } },
+            data: function(term) { return { q: term } },
             results: function(data, page) { return { results: data } }
 
           }
