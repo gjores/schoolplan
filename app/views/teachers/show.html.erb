@@ -1,19 +1,28 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @teacher.name %>
-</p>
 
-<p>
-  <strong>Sign:</strong>
-  <%= @teacher.sign %>
-</p>
+  <h1>
+  	<%= @teacher.name %>
+  </h1>
 
-<p>
-  <strong>Email:</strong>
-  <%= @teacher.email %>
-</p>
-
-<%= link_to 'Edit', edit_teacher_path(@teacher) %> |
-<%= link_to 'Back', teachers_path %>
+<div class="col-md-5">
+<table class="table table-striped">
+	<thead>
+		<th>Kurs</th>
+		<th>Kod</th>
+		<th>Grupp</th>
+		<th>Poäng</th>
+	</thead>
+	<tbody>
+		<%@courses.each do |c|%>
+		<tr>
+			<td><%=c.cours_name%></td>
+			<td><%=c.cours_code%></td>
+			<td><%=c.group%></td>
+			<td><%=c.teaching_points%></td>
+		</tr>
+		<% end -%>
+	</tbody>
+</table>  
+<p><strong>Summa poäng: <%= points = @courses.pluck(:teaching_points).sum %></p></strong>
+</div>

@@ -21,6 +21,7 @@ class TeachersController < ApplicationController
   # GET /teachers/1
   # GET /teachers/1.json
   def show
+    @courses = Course.where(:teacher_id => @teacher)
   end
 
   # GET /teachers/new

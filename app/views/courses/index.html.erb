@@ -5,8 +5,10 @@
     <tr>
       <th>Cours name</th>
       <th>Cours code</th>
-      <th>Group</th>
       <th>Teacher</th>
+      <th>Poäng</th>
+      <th>Undervisningstid</th>
+      <th>Group</th>
       <th></th>
       <th></th>
       <th></th>
@@ -18,12 +20,18 @@
       <tr>
         <td><%= course.cours_name %></td>
         <td><%= course.cours_code %></td>
-        <td><%= course.group%></td>
-        <td><span class="edit" href="#" data-xeditable="true" data-pk="<%= course.id %>" data-model="course" data-name="teacher_id" data-url="<%= course_url(course) %>" data-title="Välj lärare." data-type="select2">
+     
+        <td><span class="teachers" href="#" data-xeditable="true" data-pk="<%= course.id %>" data-model="course" data-name="teacher_id" data-url="<%= course_url(course) %>" data-title="Välj lärare." data-type="select2">
             <% @teachers.where(:id => course.teacher_id).each do |t| %>
             <%= t.name%>
             <% end -%>
-          </a></td>
+          </td>
+       
+        <td><%= course.teaching_points%></td>
+        <td><span class="teaching_houres" data-xeditable="true" data-model="course" data-pk="<%= course.id %>" data-url="<%= course_url(course) %>" data-source="string"data-name="teaching_hours">
+          <%= course.teaching_hours%>
+        </span></td>
+        <td><%= course.group%></td>
         <td><%= link_to 'Show', course %></td>
         <td><%= link_to 'Edit', edit_course_path(course) %></td>
         <td><%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -37,7 +45,7 @@
 <%= link_to 'New Course', new_course_path %>
 <script type="text/javascript">
 $( document ).ready(function() {
-  $('.edit').editable({
+  $('.teachers').editable({
         select2: {
            multiple: false,
            ajax:{
@@ -50,6 +58,9 @@ $( document ).ready(function() {
           }
         }
 
+    });
+
+  $('.teaching_houres').editable({
     });
 }); 
 </script>

@@ -4,8 +4,10 @@
   <thead>
     <tr>
       <th>Name</th>
-      <th>Sign</th>
+      <th>Summa undervisande poäng</th>
       <th>Email</th>
+      <th>Summa undervisningstid</th>
+      <th>Sign</th>
       <th></th>
       <th></th>
       <th></th>
@@ -16,6 +18,7 @@
     <% @teachers.each do |teacher| %>
       <tr>
         <td><%= teacher.name %></td>
+        <td><%= Course.where(:teacher_id => teacher.id).pluck(:teaching_points).sum%></td>
         
         <td><%= link_to 'Show', teacher %></td>
         <td><%= link_to 'Edit', edit_teacher_path(teacher) %></td>
