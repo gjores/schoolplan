@@ -1,6 +1,6 @@
 # config valid only for current version of Capistrano
 lock '3.3.4'
-server '83.241.146.45', roles: [:web], user: 'petter'
+server '83.241.146.45', roles: [:web], user: 'deploy'
 set :application, 'schoolplan'
 set :repo_url, 'gjores@bitbucket.org/gjores/schoolplan.git'
 
