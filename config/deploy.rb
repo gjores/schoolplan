@@ -14,8 +14,7 @@ set :deploy_to, '/var/www/schoolplan'
  set :scm, :git
  set :branch, "master"
 
- set :user, "petter"
- set :password, "0,2%keeso"
+ set :user, "deploy"
 
 # Default value for :format is :pretty
 # set :format, :pretty
