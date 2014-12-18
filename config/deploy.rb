@@ -1,8 +1,8 @@
 # config valid only for current version of Capistrano
 lock '3.3.4'
-
+server '83.241.146.45', roles: [:web], user: 'petter'
 set :application, 'schoolplan'
-set :repo_url, 'git@github.com:gjores/schoolplan.git'
+set :repo_url, 'gjores@bitbucket.org/gjores/schoolplan.git'
 
 # Default branch is :master
 # ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }.call
@@ -15,6 +15,7 @@ set :deploy_to, '/var/www/schoolplan'
  set :branch, "master"
 
  set :user, "petter"
+ set :password, "0,2%keeso"
 
 # Default value for :format is :pretty
 # set :format, :pretty

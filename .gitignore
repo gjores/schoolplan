@@ -41,3 +41,4 @@ Thumbs.db
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+/config/deploy
